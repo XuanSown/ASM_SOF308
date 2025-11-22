@@ -43,7 +43,7 @@ const error = ref('')
 const handleRegister = () => {
     error.value = ''
 
-    if (form.password && form.confirmPassword) {
+    if (form.password !== form.confirmPassword) {
         error.value = 'Mật khẩu không khớp'
         return
     }
