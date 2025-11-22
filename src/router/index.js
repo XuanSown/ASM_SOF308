@@ -10,14 +10,14 @@ const router =createRouter ({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         //Các trang này ai cũng vào được không bảo vệ
-        {path:'/', name:'home', component:'Home'},
-        {path:'/login', name:'login', component:'Login'},
-        {path: '/register', name:'register', component:'Register'},
+        {path:'/', name:'home', component:Home},
+        {path:'/login', name:'login', component:Login},
+        {path: '/register', name:'register', component:Register},
 
         //Các trang bảo vệ cần đăng nhập mới vào được
         //"requiresAuth : true" user cần đăng nhập 
-        {path:'/create-post', name:'create-post', component:'CreatePost', meta:{requiresAuth: true}},
-        {path:'/profile', name:'profile', component:'Profile', meta:{requiresAuth: true}}
+        {path:'/create-post', name:'create-post', component:CreatePost, meta:{requiresAuth: true}},
+        {path:'/profile', name:'profile', component:Profile, meta:{requiresAuth: true}}
     ]
 });
 
