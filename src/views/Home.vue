@@ -71,6 +71,11 @@
         </div>
       </section>
     </div>
+    <footer class="bg-light text-secondary pt-1 pb-2 mt-5 rounded-top border-top">
+      <div class="text-center small text-muted">
+          &copy; 2025 <strong>SownExpress</strong>. All rights reserved.
+        </div>
+    </footer>
   </div>
 </template>
 

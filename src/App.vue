@@ -87,32 +87,30 @@ onMounted(() => {
 </template>
 
 <style scoped>
-/* === LOGO STYLE MỚI === */
+
 .logo-brand {
   font-family: 'Segoe UI', sans-serif;
   font-size: 1.8rem;
-  font-weight: 800; /* Chữ siêu đậm */
+  font-weight: 800;
   
-  /* Hiệu ứng màu chuyển (Gradient) từ Xanh lá sang Vàng cam */
+ 
   background: linear-gradient(45deg, #198754, #ffc107);
-  -webkit-background-clip: text; /* Cắt nền theo hình dáng chữ */
-  -webkit-text-fill-color: transparent; /* Làm chữ trong suốt để hiện nền */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   
-  letter-spacing: -0.5px; /* Thu hẹp khoảng cách chữ cho hiện đại */
+  letter-spacing: -0.5px;
   transition: opacity 0.3s;
 }
 
 .logo-brand:hover {
-  opacity: 0.8; /* Hiệu ứng mờ nhẹ khi di chuột */
+  opacity: 0.8;
 }
 
 .logo-icon {
   font-size: 1.8rem;
-  /* Icon không bị ảnh hưởng bởi gradient text */
   -webkit-text-fill-color: initial; 
 }
 
-/* Link điều hướng */
 .nav-link {
   color: #555;
   transition: color 0.2s;

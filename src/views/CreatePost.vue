@@ -92,7 +92,6 @@ const handleFileUpload = (event) => {
 // Xóa ảnh đã chọn
 const removeImage = () => {
   post.image = null
-  // Reset input file (nếu cần thiết, trong Vue đơn giản có thể bỏ qua bước reset DOM này)
 }
 
 const submitPost = () => {
