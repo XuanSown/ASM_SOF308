@@ -88,11 +88,11 @@ const featuredPost = computed(() => posts.value.length > 0 ? posts.value[0] : nu
 const topNews = computed(() => posts.value.slice(1, 4))
 const regularPosts = computed(() => posts.value.slice(4))
 
-// === HÀM LẤY ẢNH ĐÃ SỬA ĐỔI ===
+//HÀM LẤY ẢNH
 const getImage = (post) => {
-  // Ưu tiên ảnh upload
+  //ảnh upload
   if (post.image) return post.image
-  // Fallback ảnh random
+  //ảnh random
   return `https://picsum.photos/seed/${post.id}/800/600`
 }
 
