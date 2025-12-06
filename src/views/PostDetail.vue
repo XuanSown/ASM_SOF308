@@ -21,7 +21,7 @@
 
                     <!-- Form người bình luận -->
                     <div class="mb-4 d-flex gap-3">
-                        <img :src="form.avatar || 'https://cdn-icons-png.flaticon.com/512/149/149071.png'"
+                        <img :src="currentUser.avatar || 'https://cdn-icons-png.flaticon.com/512/149/149071.png'"
                             class="rounded-circle border" width="50" height="50" style="object-fit: cover;">
                         <div class="flex-grow-1">
                             <textarea v-model="newComment" class="form-control mb-2" rows="2"
@@ -31,7 +31,7 @@
                     </div>
                     <!-- Danh sách bình luận -->
                     <div v-if="comments.length > 0">
-                        <div v-for="(comment, index) in index" :key="index" class="d-fex gap-3 mb-3 border-bottom pb-3">
+                        <div v-for="(comment, index) in comments" :key="index" class="d-flex gap-3 mb-3 border-bottom pb-3">
                             <img :src="comment.avatar || 'https://cdn-icons-png.flaticon.com/512/149/149071.png'"
                                 class="rounded-circle border" width="45" height="45" style="object-fit: cover;">
                             <div>
@@ -69,13 +69,13 @@ const currentUser = ref({})
 
 // Lấy dữ liệu bài viết dựa trên ID từ route
 onMounted(() => {
-    currentUser.value = JSON.parse(localStorage.getItem('currentUser'))
+    currentUser.value = JSON.parse(localStorage.getItem('currentUser')) || {}
 
     //Lấy bài viết theo ID
     const postId = route.params.id
     // Lấy danh sách bài viết từ localStorage
     const posts = JSON.parse(localStorage.getItem('posts')) || []
-    post.value = posts.find(p => p.id === postId)
+    post.value = posts.find(p => p.id == postId)
 
     if(post.value) {
         comments.value = post.value.comments || []
@@ -96,7 +96,7 @@ const submitComment = () => {
 
     // Cập nhật lại bài viết trong localStorage
     const posts = JSON.parse(localStorage.getItem('posts')) || []
-    const index = posts.findIndex( p => p.id === post.value.id) // Tìm vị trí bài viết hiện tại
+    const index = posts.findIndex( p => p.id == post.value.id) // Tìm vị trí bài viết hiện tại
 
     if(index !== -1) {
         if(!posts[index].comments) posts[index].comments = [] // Khởi tạo mảng comments nếu chưa có

@@ -27,7 +27,7 @@ onMounted(() => {
       <RouterLink class="navbar-brand logo-brand d-flex align-items-center" to="/">
         <span class="logo-icon me-2">🌿</span> SOWN EXPRESS
       </RouterLink>
-      
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -35,30 +35,29 @@ onMounted(() => {
       <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav ms-auto align-items-center">
           <li class="nav-item">
-             <RouterLink class="nav-link fw-medium" to="/">Trang chủ</RouterLink>
+            <RouterLink class="nav-link fw-medium" to="/">Trang chủ</RouterLink>
           </li>
-          
+
           <template v-if="!user">
             <li class="nav-item">
               <RouterLink class="nav-link" to="/login">Đăng nhập</RouterLink>
             </li>
             <li class="nav-item">
-              <RouterLink class="btn btn-success btn-sm ms-2 rounded-pill px-3 fw-bold" to="/register">Đăng ký</RouterLink>
+              <RouterLink class="btn btn-success btn-sm ms-2 rounded-pill px-3 fw-bold" to="/register">Đăng ký
+              </RouterLink>
             </li>
           </template>
 
           <template v-else>
-             <li class="nav-item">
+            <li class="nav-item">
               <RouterLink class="nav-link" to="/create-post">Viết bài</RouterLink>
             </li>
-            
+
             <li class="nav-item dropdown ms-2">
-              <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown">
-                <img 
-                  :src="user.avatar || 'https://cdn-icons-png.flaticon.com/512/149/149071.png'" 
-                  class="rounded-circle border shadow-sm me-2"
-                  style="width: 32px; height: 32px; object-fit: cover;"
-                >
+              <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+                data-bs-toggle="dropdown">
+                <img :src="user.avatar || 'https://cdn-icons-png.flaticon.com/512/149/149071.png'"
+                  class="rounded-circle border shadow-sm me-2" style="width: 32px; height: 32px; object-fit: cover;">
                 <span class="fw-bold text-dark">{{ user.name }}</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-end border-0 shadow">
@@ -67,7 +66,9 @@ onMounted(() => {
                     Hồ sơ cá nhân
                   </RouterLink>
                 </li>
-                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
                 <li>
                   <a class="dropdown-item text-danger py-2" href="#" @click.prevent="logout">
                     Đăng xuất
@@ -80,24 +81,22 @@ onMounted(() => {
       </div>
     </div>
   </nav>
-
   <div class="container py-4">
     <RouterView />
   </div>
 </template>
 
 <style scoped>
-
 .logo-brand {
   font-family: 'Segoe UI', sans-serif;
   font-size: 1.8rem;
   font-weight: 800;
-  
- 
+
+
   background: linear-gradient(45deg, #198754, #ffc107);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  
+
   letter-spacing: -0.5px;
   transition: opacity 0.3s;
 }
@@ -108,13 +107,14 @@ onMounted(() => {
 
 .logo-icon {
   font-size: 1.8rem;
-  -webkit-text-fill-color: initial; 
+  -webkit-text-fill-color: initial;
 }
 
 .nav-link {
   color: #555;
   transition: color 0.2s;
 }
+
 .nav-link:hover {
   color: #198754;
 }

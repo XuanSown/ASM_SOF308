@@ -81,6 +81,9 @@ const handleAvatarChange = (event) => {
 }
 
 const updateProfile = () => {
+  if(!confirm('Bạn có chắc chắn muốn cập nhật hồ sơ?')) {
+    return
+  }
   message.value = ''
   error.value = ''
   
