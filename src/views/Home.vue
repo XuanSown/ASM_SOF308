@@ -16,9 +16,11 @@
                 <img :src="getImage(featuredPost)" class="card-img-top main-img" alt="Featured">
                 <div class="card-body">
                   <h2 class="card-title fw-bold display-6">
-                    <a href="#" class="text-decoration-none text-dark hover-title">
+                    <!-- <a href="#" class="text-decoration-none text-dark hover-title">
                       {{ featuredPost.title }}
-                    </a>
+                    </a> -->
+                    <router-link :to="{ name: 'post-detail', params: { id: featuredPost.id } }"
+                      class="text-decoration-none text-dark hover-title">{{ featuredPost.title }}</router-link>
                   </h2>
                   <p class="card-text text-secondary fs-5">{{ getExcerpt(featuredPost.content, 150) }}</p>
                   <div class="d-flex align-items-center text-muted small mt-3">
@@ -34,12 +36,16 @@
             <h5 class="fw-bold text-uppercase text-danger border-bottom pb-2 border-danger">Tin đáng chú ý</h5>
             <div class="d-flex flex-column gap-3 mt-3">
               <article v-for="post in topNews" :key="post.id" class="d-flex gap-3 align-items-start border-bottom pb-3">
+              <router-link>
                 <img :src="getImage(post)" class="rounded" width="100" height="70" style="object-fit: cover;">
+              </router-link>
                 <div>
                   <h6 class="fw-bold mb-1">
-                    <a href="#" class="text-decoration-none text-dark hover-title">
+                    <!-- <a href="#" class="text-decoration-none text-dark hover-title">
                       {{ post.title }}
-                    </a>
+                    </a> -->
+                    <router-link :to="{name: 'post-detail', params: {id: post.id}}"
+                    class="text-decoration-none text-dark hover-title">{{ post.title }}</router-link>
                   </h6>
                   <small class="text-muted">{{ formatDate(post.date) }}</small>
                 </div>
@@ -54,12 +60,16 @@
         <div class="row g-4">
           <div v-for="post in regularPosts" :key="post.id" class="col-md-6 col-lg-4">
             <div class="card h-100 border-0 shadow-sm news-card">
-              <img :src="getImage(post)" class="card-img-top" height="200" style="object-fit: cover;">
+              <router-link :to="{name: 'post-detail', params: {id: post.id}}">
+                <img :src="getImage(post)" class="card-img-top" height="200" style="object-fit: cover;">
+              </router-link>
               <div class="card-body">
                 <h5 class="card-title fw-bold">
-                  <a href="#" class="text-decoration-none text-dark hover-title">
+                  <!-- <a href="#" class="text-decoration-none text-dark hover-title">
                     {{ getExcerpt(post.title, 50) }}
-                  </a>
+                  </a> -->
+                  <router-link :to="{name: 'post-detail', params: {id: post.id}}"
+                  class="text-decoration-none text-dark hover-title">{{ getExcerpt(post.title, 50) }}</router-link>
                 </h5>
                 <p class="card-text text-muted small">{{ getExcerpt(post.content, 80) }}</p>
               </div>
@@ -73,8 +83,8 @@
     </div>
     <footer class="bg-light text-secondary pt-1 pb-2 mt-5 rounded-top border-top">
       <div class="text-center small text-muted">
-          &copy; 2025 <strong>SownExpress</strong>. All rights reserved.
-        </div>
+        &copy; 2025 <strong>SownExpress</strong>. All rights reserved.
+      </div>
     </footer>
   </div>
 </template>
@@ -120,16 +130,19 @@ onMounted(() => {
   color: #9f224e !important;
   transition: color 0.2s;
 }
+
 .news-card:hover {
   transform: translateY(-3px);
   transition: transform 0.3s ease;
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
 }
+
 .main-img {
   width: 100%;
   max-height: 450px;
   object-fit: cover;
 }
+
 .main-article:hover .main-img {
   opacity: 0.95;
   transition: opacity 0.3s;
